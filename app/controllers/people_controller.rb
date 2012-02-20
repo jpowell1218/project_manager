@@ -8,13 +8,13 @@ class PeopleController < ApplicationController
         'darth-vader'
       ]
   end
-  
+
   def show
     @person = params[:id]
   end
 
   private
-  
+
   def authenticate
     if params[:id] == "darth-vader"
       redirect_to people_url, :notice => "That page is restricted."
