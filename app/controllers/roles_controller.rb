@@ -8,7 +8,17 @@ class RolesController < ApplicationController
   end
 
   def create
-
+    @role = project.roles.new(params[:role])
+    new_was_successful = @role.save
+    respond_with [project, @role] do |format| # redirects to url: /projects/1/roles/1
+     format.html {
+       if new_was_successful
+         redirect_to(project_path(project), :notice => 'The role was created')
+       else
+         render 'new'
+       end
+     }
+   end
   end
 
   private
