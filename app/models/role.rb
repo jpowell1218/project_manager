@@ -11,4 +11,5 @@ class Role < ActiveRecord::Base
 
   attr_protected :project_id
 
+  default_scope order("updated_at DESC")
 end
