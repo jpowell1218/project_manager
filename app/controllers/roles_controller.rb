@@ -45,7 +45,7 @@ class RolesController < ApplicationController
     role = project.roles.find(params[:id])
     if role.destroy
       flash[:notice] = 'The role was destroyed'
-    end
+    else
       flash[:alert] = 'The role could not be destroyed'
     end
     respond_with [project, @role] do |format|
